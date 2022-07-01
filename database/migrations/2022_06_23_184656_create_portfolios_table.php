@@ -20,16 +20,14 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class);
             $table->foreignIdFor(InvestmentPeriod::class);
-            $table->integer("amount");
+            $table->string('name');
+            $table->boolean("is_active"); //0 => Running, 1 => completed
+            $table->decimal("investment_amount");
             $table->boolean("save_pro")->default(false);
-            $table->timestamps();   
-        
+            $table->dateTime('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->dateTime('updated_at')->nullable();
         });
 
-        DB::table("portfolios")->insert([
-            ['user_id'=> 1,'investment_period_id'=>1, "amount" => 2000 ],
-            ['user_id'=> 1,'investment_period_id'=>1, "amount" => 4000 ],
-        ]);
     }
 
     /**

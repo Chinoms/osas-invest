@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\InvestmentPeriod;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;

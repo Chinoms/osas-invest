@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Portfolio;
-use App\Models\Transaction;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class DashboardController extends Controller
+class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,15 +13,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $user_id = Auth::user()->id;
-        $portfolio = Portfolio::where('user_id',$user_id )->get();
-        if(count($portfolio) > 0){
-            $transactions = Transaction::where("user_id", $user_id)->get();
-        }else{
-            $transactions = [];
-        }
-       
-        return view('admin/dashboard')->with(['portfolios' =>  $portfolio, "transactions" => $transactions]);
+        //
     }
 
     /**
@@ -51,10 +40,10 @@ class DashboardController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Portfolio  $portfolio
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Portfolio $portfolio)
+    public function show($id)
     {
         //
     }
@@ -62,10 +51,10 @@ class DashboardController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Portfolio  $portfolio
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Portfolio $portfolio)
+    public function edit($id)
     {
         //
     }
@@ -74,10 +63,10 @@ class DashboardController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Portfolio  $portfolio
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Portfolio $portfolio)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -85,10 +74,10 @@ class DashboardController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Portfolio  $portfolio
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Portfolio $portfolio)
+    public function destroy($id)
     {
         //
     }

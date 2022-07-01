@@ -14,13 +14,13 @@
 <body>
     <div class="wrapper">
         <div class="text-center mt-4 name">
-            Login
+            Reset Password
         </div>
         @if ($errors->any())
             {{ implode('', $errors->all(':message')) }}
         @endif
 
-        <form class="p-3 mt-3" method="POST" action="/login">
+        <form class="p-3 mt-3" method="POST" action="/reset-password">
             @csrf
             <div class="form-field d-flex align-items-center">
                 <span class="far fa-user"></span>
@@ -30,10 +30,11 @@
                 <span class="fas fa-key"></span>
                 <input type="password" name="password" id="password" placeholder="Password">
             </div>
-            <button type="submit" class="btn mt-5">Login</button>
-
-
-        <a class="btn btn-primary" href="reset-password">Create Account</a>
+            <div class="form-field d-flex align-items-center">
+                <span class="fas fa-key"></span>
+                <input type="tel" name="phone_number" id="phone_number" placeholder="+2348144444444">
+            </div>
+            <button type="submit" class="btn mt-5">Reset Password</button>
         </form>
     </div>
 

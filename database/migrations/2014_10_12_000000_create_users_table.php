@@ -19,14 +19,15 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('login_id');
+            $table->boolean('active')->default(true);
             $table->string('phone_number', 15)->unique();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
         DB::table('users')->insert([
-            ["login_id" => "4565767688", "phone_number" => "+2347575757575", "password" => Hash::make('1212121212')],
-            ["login_id" => "4565767681", "phone_number" => "+2347575752575", "password" => Hash::make('1212121212'),]
+            ["login_id" => "509033455", "phone_number" => "+2347575757575", "password" => Hash::make('1212121212'), 'active' => false],
+            ["login_id" => "509033499", "phone_number" => "+2347575752575", "password" => Hash::make('0000000000'), 'active' => true,]
         ]);
     }
 
